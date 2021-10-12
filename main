@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#SBATCH --job-name=ANTS
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=1G
+#SBATCH --time=00:15:00
+
+module load ants
+chmod +x brainwarp.sh
+./brainwarp.sh
