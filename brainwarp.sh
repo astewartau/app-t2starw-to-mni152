@@ -27,4 +27,8 @@ else
     exit 1
 fi
 
+echo "registering..."
+# creating the registered image
+WarpImageMultiTransform 3 $t1 output/t1.nii.gz -R $template output/t1w_Warp.nii.gz output/t1w_Affine.txt
+
 echo "warp complete!"
