@@ -5,6 +5,6 @@
 #SBATCH --mem=1G
 #SBATCH --time=00:15:00
 
-module load ants
+# module load ants
 chmod +x brainwarp.sh
-./brainwarp.sh
+singularity exec docker://brainlife/ants:2.2.0-1bc ./brainwarp.sh
