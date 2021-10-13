@@ -1,6 +1,6 @@
 {
 	"t1":	"t1.nii.gz",
 	"template": "template/MNI152_T1_1.25mm_brain.nii.gz",
-	"intense": false,
+	"intense": "test",
 	"optional_params": null
 }
