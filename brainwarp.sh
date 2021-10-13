@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo "loading filename and optional parameters..."
 t1=`jq -r '.t1' config.json`
 optional_params=`jq -r '.optional_params' config.json` # currently the only option is null
