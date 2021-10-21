@@ -16,10 +16,10 @@ echo "warping..."
 
 if [ "$intense" = "false" ]; then
     # less intense
-    ANTS 3 -m CC[$template,$t1,1,4] -i 100x100x50 -o $prefix -t SyN[0.25] -r Gauss[3,0]
+    ANTS 3 -m CC[$template,$t1,1,4] -i 100x100x50 -o $prefix -t SyN[0.25] -r Gauss[3,0] --do-rigid TRUE
 elif [ "$intense" = "true" ]; then
     # more intense
-    ANTS 3 -m CC[$template,$t1,1,4] -i 100x100x100x25 -o $prefix -t SyN[0.25] -r Gauss[3,0]
+    ANTS 3 -m CC[$template,$t1,1,4] -i 100x100x100x25 -o $prefix -t SyN[0.25] -r Gauss[3,0] --do-rigid TRUE
 elif [ "$intense" = "test" ]; then
     # for testing, only iterates 1x1x1
     ANTS 3 -m CC[$template,$t1,1,4] -i 1x1x1 -o $prefix -t SyN[0.25] -r Gauss[3,0]
