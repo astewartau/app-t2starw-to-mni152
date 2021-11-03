@@ -33,4 +33,8 @@ echo "registering..."
 # creating the registered image
 WarpImageMultiTransform 3 $t1 output/t1.nii.gz -R $template output/t1w_Warp.nii.gz output/t1w_Affine.txt
 
+echo "moving output..."
+mkdir -p registered
+mv output/t1.nii.gz registered/t1.nii.gz
+
 echo "warp complete!"
