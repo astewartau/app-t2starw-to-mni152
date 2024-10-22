@@ -1,6 +1,7 @@
 {
-	"t1":	"t1.nii.gz",
-	"template": "template/mni_t1_template_masked.nii.gz",
+	"t2starw":	"input/sub-1_echo-1_part-mag_MEGRE.nii",
+	"template": "template/mni_icbm152_t2_tal_nlin_sym_09b_hires_DL.nii",
+	"segmentation": "template/mni_icbm152_CerebrA_tal_nlin_sym_09c.nii",
 	"intense": "test",
 	"optional_params": null
 }

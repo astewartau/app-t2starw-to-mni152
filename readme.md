@@ -1,14 +1,15 @@
 [![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/brain-life/abcd-spec)
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.346-blue.svg)](https://doi.org/10.25663/brainlife.app.346)
 
-# app-example-documentation
-+ coming soon
+# App-Segment-T2starw-MNI
+
+This app segments a given T2*-weighted file (T2starw) by registering the MNI152 ICBM152 T2 nonlinear symmetrical 2009b atlas to the target image. It employs ANTs (Advanced Normalization Tools) to perform the registration and exports segmentation labels based on the CerebrA atlas.
 
 ### Authors
-- [Eva Bacas](e.bacas@pitt.edu)
+- [Ashley Stewart](a.stewart.au@gmail.com)
 
 ### Contributors
-- Jamie Hanson
+- Ashley Stewart
 
 ### Funding Acknowledgement
 brainlife.io is publicly funded and for the sustainability of the project it is helpful to Acknowledge the use of the platform. We kindly ask that you acknowledge the funding below in your publications and code reusing this code.
@@ -22,7 +23,7 @@ brainlife.io is publicly funded and for the sustainability of the project it is 
 ### Citations
 We kindly ask that you cite the following articles when publishing papers and code using this code.
 
-1. Avesani, P., McPherson, B., Hayashi, S. et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. Sci Data 6, 69 (2019). [https://doi.org/10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
+Avants, B. B., Tustison, N., & Song, G. (2009). Advanced normalization tools (ANTS). Insight j, 2(365), 1-35.
 
 #### MIT Copyright (c) 2020 brainlife.io The University of Texas at Austin and Indiana University
 
@@ -39,7 +40,7 @@ You can submit this App online at [https://doi.org/10.25663/bl.app.1](https://do
 
 ```json
 {
-  	"t1":	"/testdata/t1/t1.nii.gz",
+  	"t2starw":	"/testdata/t2starw.nii.gz",
   	"optional_params": null
 }
 ```
@@ -50,7 +51,7 @@ You can submit this App online at [https://doi.org/10.25663/bl.app.1](https://do
 ./main
 ```
 
-### Sample Datasets
+### Sample Datasets `#TODO UPDATE`
 
 If you don't have your own input file, you can download sample datasets from Brainlife.io, or you can use [Brainlife CLI](https://github.com/brain-life/cli).
 

@@ -5,6 +5,37 @@
 #SBATCH --mem=2G
 #SBATCH --time=05:00:00
 
-# module load ants
-chmod +x brainwarp.sh
+echo "[INFO] Pulling Python v3.9 container..."
+singularity pull docker://python:3.9-bookworm
+
+echo "[INFO] Installing pip packages"
+singularity exec python_3.9-bookworm.sif \
+    pip install --user osfclient pandas
+
+echo "[INFO] Pulling T2 template..."
+mkdir -p template
+singularity exec python_3.9-bookworm.sif \
+    python -m osfclient -p fnvbm fetch \
+    mni_icbm152_t2_tal_nlin_sym_09b_hires.nii \
+    template/mni_icbm152_t2_tal_nlin_sym_09b_hires_DL.nii
+
+echo "[INFO] Pulling segmentation..."
+singularity exec python_3.9-bookworm.sif \
+    python -m osfclient -p fnvbm fetch \
+    mni_icbm152_CerebrA_tal_nlin_sym_09c.nii \
+    template/mni_icbm152_CerebrA_tal_nlin_sym_09c.nii
+
+echo "[INFO] Pulling segmentation CSV..."
+singularity exec python_3.9-bookworm.sif \
+    python -m osfclient -p fnvbm fetch \
+    CerebrA_LabelDetails.csv \
+    template/CerebrA_LabelDetails.csv
+
+echo "[INFO] Converting CSV to label.json..."
+singularity exec python_3.9-bookworm.sif \
+    python csv_to_label.py \
+    template/CerebrA_LabelDetails.csv \
+    template/label.json
+
+echo "Starting brainwarp.sh with ANTs container..."
 singularity exec docker://brainlife/ants:2.2.0-1bc ./brainwarp.sh
